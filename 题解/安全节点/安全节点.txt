@@ -1,0 +1,21 @@
+class Solution:
+    def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
+        n = len(graph)
+        color = [0] * n
+
+        def safe(x: int) -> bool:
+            if color[x] > 0:
+                return color[x] == 2
+            color[x] = 1
+            for y in graph[x]:
+                if not safe(y):
+                    return False
+            color[x] = 2
+            return True
+
+        return [i for i in range(n) if safe(i)]
+
+作者：力扣官方题解
+链接：https://leetcode.cn/problems/find-eventual-safe-states/solutions/916155/zhao-dao-zui-zhong-de-an-quan-zhuang-tai-yzfz/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

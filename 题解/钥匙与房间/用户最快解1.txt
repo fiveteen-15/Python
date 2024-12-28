@@ -1,0 +1,13 @@
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        acs={0:True}
+        cur_rooms=rooms[0]
+        while cur_rooms:
+            new_rooms=[]
+            while cur_rooms:
+                key=cur_rooms.pop()
+                if key not in acs:
+                    acs[key]=True
+                    new_rooms.extend(rooms[key])
+            cur_rooms=new_rooms
+        return len(acs)==len(rooms)

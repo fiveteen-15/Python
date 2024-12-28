@@ -1,0 +1,4 @@
+判定线的移动作为动画播放
+tap按时间判定
+pygame什么垃圾
+python释放内存：del 变量名 + gc.collect()
